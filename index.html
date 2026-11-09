@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sofía Crochet · Ropa tejida a mano con amor</title>
+  <meta name="description" content="Ropa tejida a crochet a mano por Sofía Castillo: tops, conjuntos y trajes de baño. Pedidos personalizados por WhatsApp." />
+  <meta name="theme-color" content="#14111c" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook, etc.) -->
+  <meta property="og:title" content="Sofía Crochet · Ropa tejida a mano" />
+  <meta property="og:description" content="Tops, conjuntos y trajes de baño tejidos a crochet. Pedidos por WhatsApp." />
+  <meta property="og:image" content="img/promo-facebook.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧶</text></svg>" />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Precargar la imagen principal para que aparezca rápido en el celular -->
+  <link rel="preload" as="image" href="img/top-terracota.jpg" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: { 950: '#0d0b13', 900: '#14111c', 800: '#1c1827', 700: '#262035', 600: '#332b47' },
+            mist:  { 100: '#f1ede8', 200: '#ddd6d0', 300: '#bdb4b0', 400: '#948b8c' },
+            terra: { 300: '#f0b08f', 400: '#e8916b', 500: '#d9774f' },
+            rosa:  { 300: '#f7bccb', 400: '#f19cb2', 500: '#e47e98' },
+            mar:   { 300: '#9fe1dc', 400: '#6fd0c9', 500: '#45b8b0' },
+            sol:   { 300: '#f8dc9a', 400: '#f3c96b', 500: '#e7b347' },
+            whatsapp: '#25D366',
+          },
+          fontFamily: {
+            sans:   ['Inter', 'system-ui', 'sans-serif'],
+            serif:  ['"Playfair Display"', 'Georgia', 'serif'],
+            script: ['"Dancing Script"', 'cursive'],
+          },
+          boxShadow: {
+            glass: '0 10px 40px -10px rgba(0, 0, 0, 0.55)',
+            glow:  '0 0 45px -10px rgba(241, 156, 178, 0.55)',
+            'glow-wa': '0 0 40px -8px rgba(37, 211, 102, 0.6)',
+          },
+          keyframes: {
+            blob: {
+              '0%, 100%': { transform: 'translate(0,0) scale(1)' },
+              '33%':      { transform: 'translate(40px,-50px) scale(1.1)' },
+              '66%':      { transform: 'translate(-30px,30px) scale(0.95)' },
+            },
+            bob: {
+              '0%, 100%': { transform: 'translateY(0) rotate(var(--r, 0deg))' },
+              '50%':      { transform: 'translateY(-10px) rotate(var(--r, 0deg))' },
+            },
+            fadeUp: {
+              '0%':   { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            sheetUp: {
+              '0%':   { transform: 'translateY(100%)' },
+              '100%': { transform: 'translateY(0)' },
+            },
+            fadeIn:  { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%':      { backgroundPosition: '100% 50%' },
+            },
+            draw:    { to: { strokeDashoffset: '0' } },
+            spin:    { to: { transform: 'rotate(360deg)' } },
+            marquee: { to: { transform: 'translateX(-50%)' } },
+            twinkle: {
+              '0%, 100%': { opacity: '0.2', transform: 'scale(0.8)' },
+              '50%':      { opacity: '1',   transform: 'scale(1.15)' },
+            },
+            pulseRing: {
+              '0%':   { transform: 'scale(1)',   opacity: '0.55' },
+              '100%': { transform: 'scale(1.6)', opacity: '0' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(0deg)' },
+              '25%':      { transform: 'rotate(-12deg)' },
+              '75%':      { transform: 'rotate(12deg)' },
+            },
+          },
+          animation: {
+            blob:        'blob 20s ease-in-out infinite',
+            'blob-slow': 'blob 28s ease-in-out infinite reverse',
+            bob:         'bob 6s ease-in-out infinite',
+            'bob-slow':  'bob 8s ease-in-out infinite',
+            fadeUp:      'fadeUp .7s cubic-bezier(.2,.7,.2,1) both',
+            sheetUp:     'sheetUp .38s cubic-bezier(.2,.8,.2,1) both',
+            fadeIn:      'fadeIn .25s ease-out both',
+            gradient:    'gradient 6s ease infinite',
+            draw:        'draw 2.2s ease-out .8s forwards',
+            'spin-slow': 'spin 14s linear infinite',
+            marquee:     'marquee 26s linear infinite',
+            twinkle:     'twinkle 3s ease-in-out infinite',
+            pulseRing:   'pulseRing 2s cubic-bezier(0.4,0,0.6,1) infinite',
+            wiggle:      'wiggle 1s ease-in-out',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ---------- Base táctil ---------- */
+    html { -webkit-text-size-adjust: 100%; }
+    body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
+    a, button { touch-action: manipulation; }
+
+    /* ---------- Glassmorphism ---------- */
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+    }
+    /* Tarjetas: en celular sin desenfoque (mucho más fluido al hacer scroll) */
+    .glass-card {
+      background: rgba(30, 26, 42, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    @media (min-width: 768px) {
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px) saturate(150%);
+        -webkit-backdrop-filter: blur(16px) saturate(150%);
+      }
+    }
+
+    .knit-texture {
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1.2px, transparent 1.2px);
+      background-size: 20px 20px;
+    }
+    .text-gradient {
+      background-image: linear-gradient(90deg, #f19cb2, #f3c96b, #6fd0c9, #e8916b, #f19cb2);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .thread-path { stroke-dasharray: 900; stroke-dashoffset: 900; }
+
+    /* Aparición al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Brillo al pasar el mouse / tocar */
+    .shine { position: relative; overflow: hidden; }
+    .shine::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.18) 50%, transparent 65%);
+      transform: translateX(-120%); transition: transform .9s ease;
+    }
+    .group:hover .shine::after, .group:active .shine::after { transform: translateX(120%); }
+
+    .tilt { transition: transform .25s ease, box-shadow .3s ease, border-color .3s ease; }
+
+    /* Ocultar barra de scroll en carruseles horizontales */
+    .no-scrollbar { scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+
+    /* Espacio seguro para iPhone con notch / barra inferior */
+    .pb-safe { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+
+    body.modal-open { overflow: hidden; }
+
+    /* ---------- Rendimiento en celulares ---------- */
+    @media (max-width: 767px) {
+      .bg-blob { animation: none !important; opacity: .7; }
+      .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    }
+
+    @media (min-width: 768px) {
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #14111c; }
+      ::-webkit-scrollbar-thumb { background: linear-gradient(#f19cb2, #6fd0c9); border-radius: 9999px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+      .thread-path { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-night-900 pb-24 font-sans text-mist-200 antialiased selection:bg-rosa-400/40 selection:text-white md:pb-0">
+
+  <!-- ====== Fondo decorativo ====== -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute inset-0 knit-texture"></div>
+    <div class="bg-blob absolute -left-32 -top-32 h-[26rem] w-[26rem] rounded-full bg-rosa-500/20 blur-3xl animate-blob md:h-[30rem] md:w-[30rem]"></div>
+    <div class="bg-blob absolute -right-40 top-1/3 h-[28rem] w-[28rem] rounded-full bg-mar-500/15 blur-3xl animate-blob-slow md:h-[34rem] md:w-[34rem]"></div>
+    <div class="bg-blob absolute bottom-[-10rem] left-1/3 hidden h-[28rem] w-[28rem] rounded-full bg-sol-500/10 blur-3xl animate-blob md:block"></div>
+  </div>
+
+  <!-- ====== HEADER (arriba) ====== -->
+  <header class="sticky top-0 z-40 md:pt-3">
+    <nav class="mx-auto max-w-6xl md:px-4">
+      <div class="glass flex items-center justify-between border-x-0 border-t-0 px-4 py-3 md:rounded-2xl md:border md:px-5 md:shadow-glass">
+        <a href="#inicio" class="group flex items-center gap-2">
+          <span class="text-2xl transition-transform group-hover:animate-wiggle">🧶</span>
+          <span class="font-script text-2xl font-bold text-mist-100">Sofía <span class="text-gradient animate-gradient">Crochet</span></span>
+        </a>
+
+        <!-- Enlaces (solo escritorio) -->
+        <ul class="hidden items-center gap-8 text-sm font-medium md:flex">
+          <li><a href="#inicio"   class="nav-link text-mist-300 transition hover:text-white">Inicio</a></li>
+          <li><a href="#catalogo" class="nav-link text-mist-300 transition hover:text-white">Catálogo</a></li>
+          <li><a href="#contacto" class="nav-link text-mist-300 transition hover:text-white">Contacto</a></li>
+        </ul>
+
+        <!-- WhatsApp: ícono en celular, botón en escritorio -->
+        <a href="#" target="_blank" rel="noopener" aria-label="WhatsApp" class="wa-link inline-flex h-10 items-center gap-2 rounded-xl bg-whatsapp/90 px-3 text-sm font-semibold text-night-950 transition active:scale-95 hover:bg-whatsapp md:px-4">
+          <svg class="h-5 w-5 md:h-4 md:w-4" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg>
+          <span class="hidden md:inline">WhatsApp</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ====== ENCABEZADO / HERO ====== -->
+    <section id="inicio" class="relative scroll-mt-20 overflow-hidden md:scroll-mt-28">
+      <span aria-hidden="true" class="absolute left-[8%] top-10 text-sol-300 animate-twinkle md:top-24">✦</span>
+      <span aria-hidden="true" class="absolute right-[10%] top-6 text-rosa-300 animate-twinkle [animation-delay:1s] md:left-[46%] md:top-16">✦</span>
+      <span aria-hidden="true" class="absolute bottom-24 left-[40%] text-mar-300 animate-twinkle [animation-delay:2s]">✦</span>
+
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-12 pt-8 md:grid-cols-2 md:gap-14 md:px-4 md:pb-24 md:pt-20">
+        <!-- Texto -->
+        <div class="text-center md:text-left">
+          <span class="glass inline-flex animate-fadeUp items-center gap-2 rounded-full px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-widest text-sol-300 md:text-xs">
+            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mar-400 opacity-70"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-mar-400"></span></span>
+            Pedidos abiertos · Hecho a mano
+          </span>
+
+          <p class="mt-5 animate-fadeUp font-script text-2xl text-rosa-300 [animation-delay:.1s] md:mt-6 md:text-3xl">Sofía Castillo presenta</p>
+
+          <h1 class="mt-1 font-serif text-[2.6rem] font-bold leading-[1.05] text-mist-100 sm:text-6xl lg:text-7xl">
+            <span class="block animate-fadeUp [animation-delay:.2s]">Ropa tejida</span>
+            <span class="block animate-fadeUp [animation-delay:.35s]">a mano,</span>
+            <span class="relative inline-block animate-fadeUp italic [animation-delay:.5s]">
+              <span class="text-gradient animate-gradient">con amor</span>
+              <svg class="absolute -bottom-3 left-0 h-5 w-full md:-bottom-4 md:h-6" viewBox="0 0 300 24" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path class="thread-path animate-draw" d="M2 14 C 40 2, 70 24, 110 12 S 180 2, 220 14 S 280 22, 298 8" stroke="url(#threadGrad)" stroke-width="3" stroke-linecap="round"/>
+                <defs><linearGradient id="threadGrad" x1="0" x2="1"><stop stop-color="#f19cb2"/><stop offset=".5" stop-color="#f3c96b"/><stop offset="1" stop-color="#6fd0c9"/></linearGradient></defs>
+              </svg>
+            </span>
+          </h1>
+
+          <p class="mx-auto mt-7 max-w-md animate-fadeUp text-base leading-relaxed text-mist-300 [animation-delay:.65s] md:mx-0 md:mt-8 md:text-lg">
+            Tops, conjuntos y trajes de baño tejidos a crochet, puntada a puntada. Elige tu modelo y lo hacemos en tus colores y tu talla.
+          </p>
+
+          <div class="mt-8 flex animate-fadeUp flex-col gap-3 [animation-delay:.8s] sm:flex-row sm:justify-center md:justify-start md:gap-4">
+            <a href="#catalogo" class="group inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rosa-500 via-terra-400 to-sol-400 bg-[length:200%_200%] px-7 font-semibold text-night-950 shadow-glow transition animate-gradient active:scale-[.97] hover:scale-[1.03]">
+              Ver Catálogo
+              <svg class="h-5 w-5 transition group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="wa-link glass inline-flex h-14 items-center justify-center gap-2 rounded-2xl px-7 font-semibold text-mist-100 transition active:scale-[.97] hover:border-whatsapp/50 hover:bg-whatsapp/10">
+              <svg class="h-5 w-5 text-whatsapp" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg>
+              Contactar por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Collage animado -->
+        <div class="relative mx-auto h-[21rem] w-full max-w-[22rem] sm:h-[30rem] sm:max-w-md">
+          <svg class="absolute left-0 top-2 z-20 h-14 w-14 animate-spin-slow drop-shadow-lg sm:-left-2 sm:top-4 sm:h-20 sm:w-20" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" fill="#f19cb2"/>
+            <g fill="none" stroke="#e47e98" stroke-width="4" stroke-linecap="round">
+              <path d="M14 38 Q50 20 86 38"/><path d="M8 52 Q50 32 92 52"/><path d="M12 66 Q50 46 88 66"/>
+              <path d="M38 8 Q24 50 40 92"/><path d="M60 7 Q78 50 58 93"/>
+            </g>
+          </svg>
+
+          <figure class="glass absolute right-1 top-0 z-10 w-40 animate-bob rounded-3xl p-2 shadow-glass [--r:4deg] sm:right-2 sm:w-60 sm:p-2.5">
+            <img src="img/top-terracota.jpg" width="480" height="640" fetchpriority="high" decoding="async" alt="Top terracota tejido a crochet" class="aspect-[3/4] w-full rounded-2xl object-cover" />
+          </figure>
+          <figure class="glass absolute bottom-0 left-1 z-10 w-36 animate-bob-slow rounded-3xl p-2 shadow-glass [--r:-6deg] [animation-delay:1.5s] sm:left-0 sm:w-56 sm:p-2.5">
+            <img src="img/bikini-turquesa.jpg" width="480" height="640" decoding="async" alt="Bikini turquesa tejido a crochet" class="aspect-[3/4] w-full rounded-2xl object-cover" />
+          </figure>
+          <figure class="glass absolute bottom-20 right-4 z-0 w-28 animate-bob rounded-3xl p-1.5 shadow-glass [--r:10deg] [animation-delay:.7s] sm:bottom-24 sm:right-6 sm:w-40 sm:p-2">
+            <img src="img/top-rosa.jpg" width="554" height="554" decoding="async" alt="Top rosa tejido a crochet" class="aspect-square w-full rounded-2xl object-cover" />
+          </figure>
+
+          <div class="glass absolute -bottom-3 right-0 z-20 animate-bob-slow rounded-2xl px-3.5 py-2 shadow-glass [animation-delay:2s] sm:-bottom-4 sm:px-4 sm:py-2.5">
+            <p class="text-[10px] uppercase tracking-wider text-mist-400 sm:text-[11px]">Personalizado</p>
+            <p class="font-script text-lg text-sol-300 sm:text-xl">Tus colores, tu talla ✨</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cinta en movimiento -->
+      <div class="relative overflow-hidden border-y border-white/5 bg-white/[0.02] py-3 md:py-4">
+        <div class="flex w-max animate-marquee whitespace-nowrap font-script text-xl text-mist-300/80 md:text-2xl">
+          <div class="flex shrink-0 gap-8 pr-8 md:gap-10 md:pr-10">
+            <span>Hecho a mano</span><span class="text-rosa-300">✿</span>
+            <span>Algodón suave</span><span class="text-sol-300">✿</span>
+            <span>Tops</span><span class="text-mar-300">✿</span>
+            <span>Conjuntos</span><span class="text-terra-300">✿</span>
+            <span>Trajes de baño</span><span class="text-rosa-300">✿</span>
+            <span>Pedidos personalizados</span><span class="text-sol-300">✿</span>
+          </div>
+          <div aria-hidden="true" class="flex shrink-0 gap-8 pr-8 md:gap-10 md:pr-10">
+            <span>Hecho a mano</span><span class="text-rosa-300">✿</span>
+            <span>Algodón suave</span><span class="text-sol-300">✿</span>
+            <span>Tops</span><span class="text-mar-300">✿</span>
+            <span>Conjuntos</span><span class="text-terra-300">✿</span>
+            <span>Trajes de baño</span><span class="text-rosa-300">✿</span>
+            <span>Pedidos personalizados</span><span class="text-sol-300">✿</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CATÁLOGO ====== -->
+    <section id="catalogo" class="scroll-mt-20 py-14 md:scroll-mt-28 md:py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="reveal text-center">
+          <p class="font-script text-2xl text-rosa-300">Catálogo</p>
+          <h2 class="mt-1 font-serif text-3xl font-bold text-mist-100 sm:text-5xl">Tejidos con <span class="text-gradient animate-gradient italic">alma</span></h2>
+          <p class="mx-auto mt-3 max-w-xl text-sm text-mist-400 md:mt-4 md:text-base">Cada prenda se teje a pedido. Toca <strong class="text-mist-200">“Lo quiero”</strong> y te atiendo por WhatsApp.</p>
+        </div>
+
+        <!-- Filtros: deslizables en celular -->
+        <div id="filters" class="no-scrollbar -mx-4 mt-7 flex snap-x gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 md:mt-10" role="toolbar" aria-label="Filtrar productos"></div>
+
+        <!-- Grid: 2 columnas en celular -->
+        <div id="productGrid" class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 md:mt-10 lg:grid-cols-4 lg:gap-7"></div>
+
+        <!-- Disclaimer -->
+        <div class="reveal glass mx-auto mt-8 flex max-w-3xl items-start gap-3 rounded-2xl p-4 md:mt-12 md:gap-4 md:p-5">
+          <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sol-400/15 text-sol-300 md:h-9 md:w-9">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8h.01M11 12h1v5h1"/></svg>
+          </span>
+          <p class="text-[13px] leading-relaxed text-mist-300 md:text-sm">
+            <strong class="text-sol-300">Aviso:</strong> las imágenes mostradas son <strong class="text-mist-100">únicamente de referencia</strong> y sirven para ilustrar los modelos disponibles. Cada prenda se teje a mano por encargo, por lo que colores, tallas, hilos y pequeños detalles pueden variar respecto a la fotografía.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CONTACTO ====== -->
+    <section id="contacto" class="scroll-mt-20 pb-16 md:scroll-mt-28 md:pb-24 md:pt-4">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="reveal glass relative overflow-hidden rounded-[1.75rem] p-6 text-center shadow-glass md:rounded-[2rem] md:p-14">
+          <div aria-hidden="true" class="bg-blob absolute -right-20 -top-20 h-56 w-56 rounded-full bg-whatsapp/15 blur-3xl animate-blob md:h-64 md:w-64"></div>
+          <div aria-hidden="true" class="bg-blob absolute -bottom-24 -left-20 h-56 w-56 rounded-full bg-rosa-500/15 blur-3xl animate-blob-slow md:h-64 md:w-64"></div>
+
+          <p class="relative font-script text-xl text-mar-300 md:text-2xl">¿Lista para tu prenda soñada?</p>
+          <h2 class="relative mt-1 font-serif text-3xl font-bold text-mist-100 sm:text-5xl">Hagamos tu pedido</h2>
+
+          <ol class="relative mx-auto mt-7 grid max-w-3xl gap-3 text-left sm:grid-cols-3 sm:gap-4 md:mt-10">
+            <li class="reveal flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.03] p-4 sm:block sm:p-5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rosa-400/20 font-semibold text-rosa-300">1</span>
+              <div><p class="font-semibold text-mist-100 sm:mt-3">Elige un modelo</p><p class="mt-0.5 text-sm text-mist-400">Del catálogo o comparte tu idea.</p></div>
+            </li>
+            <li class="reveal flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.03] p-4 [transition-delay:.12s] sm:block sm:p-5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sol-400/20 font-semibold text-sol-300">2</span>
+              <div><p class="font-semibold text-mist-100 sm:mt-3">Escríbeme</p><p class="mt-0.5 text-sm text-mist-400">Colores, talla, precio y entrega.</p></div>
+            </li>
+            <li class="reveal flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.03] p-4 [transition-delay:.24s] sm:block sm:p-5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-mar-400/20 font-semibold text-mar-300">3</span>
+              <div><p class="font-semibold text-mist-100 sm:mt-3">Lo tejo para ti</p><p class="mt-0.5 text-sm text-mist-400">Tu prenda única, hecha con cariño.</p></div>
+            </li>
+          </ol>
+
+          <a href="#" target="_blank" rel="noopener" class="wa-link relative mt-8 flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-whatsapp px-8 text-lg font-semibold text-night-950 shadow-glow-wa transition active:scale-[.97] hover:scale-[1.03] hover:brightness-110 sm:inline-flex sm:w-auto md:mt-10">
+            <span class="absolute inset-0 rounded-2xl bg-whatsapp animate-pulseRing"></span>
+            <svg class="relative h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg>
+            <span class="relative">Contactar por WhatsApp</span>
+          </a>
+          <p class="relative mt-4 text-sm text-mist-400">o escribe al <a href="#" target="_blank" rel="noopener" class="wa-link font-semibold text-mist-200 underline decoration-whatsapp/60 underline-offset-4">+506 7158 5300</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="border-t border-white/5 py-8 md:py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-4 text-center md:flex-row md:text-left">
+      <div>
+        <p class="font-script text-2xl text-mist-100">Sofía <span class="text-gradient animate-gradient">Crochet</span></p>
+        <p class="mt-1 text-sm text-mist-400">© <span id="year"></span> Sofía Castillo. Todos los derechos reservados.</p>
+        <p class="mt-1 text-xs text-mist-400/80">Imágenes de referencia. El producto final puede variar.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#" target="_blank" rel="noopener" aria-label="WhatsApp" class="wa-link glass flex h-11 w-11 items-center justify-center rounded-xl text-mist-300 transition hover:text-whatsapp active:scale-95">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg>
+        </a>
+        <a id="instagramLink" href="#" target="_blank" rel="noopener" aria-label="Instagram" class="glass hidden h-11 w-11 items-center justify-center rounded-xl text-mist-300 transition hover:text-rosa-300 active:scale-95">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a id="facebookLink" href="#" target="_blank" rel="noopener" aria-label="Facebook" class="glass hidden h-11 w-11 items-center justify-center rounded-xl text-mist-300 transition hover:text-mar-300 active:scale-95">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== BARRA DE NAVEGACIÓN INFERIOR (solo celular) ====== -->
+  <nav class="pb-safe fixed inset-x-0 bottom-0 z-50 px-3 md:hidden" aria-label="Navegación principal">
+    <div class="glass relative grid grid-cols-5 items-end rounded-2xl bg-night-900/70 px-1 pt-2 shadow-glass" style="padding-bottom:.4rem">
+      <a href="#inicio" data-section="inicio" class="tab-link flex flex-col items-center gap-0.5 py-1 text-[11px] text-mist-400 transition active:scale-90">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1z"/></svg>
+        Inicio
+      </a>
+      <a href="#catalogo" data-section="catalogo" class="tab-link flex flex-col items-center gap-0.5 py-1 text-[11px] text-mist-400 transition active:scale-90">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+        Catálogo
+      </a>
+      <!-- Botón central de WhatsApp -->
+      <a href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" class="wa-link -mt-7 flex flex-col items-center gap-0.5 text-[11px] font-semibold text-whatsapp transition active:scale-90">
+        <span class="relative flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-glow-wa ring-4 ring-night-900">
+          <span class="absolute inset-0 rounded-full bg-whatsapp animate-pulseRing"></span>
+          <svg class="relative h-7 w-7" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg>
+        </span>
+        Pedir
+      </a>
+      <a href="#contacto" data-section="contacto" class="tab-link flex flex-col items-center gap-0.5 py-1 text-[11px] text-mist-400 transition active:scale-90">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v11H8l-4 4z"/><path stroke-linecap="round" d="M8 10h8M8 13h5"/></svg>
+        Contacto
+      </a>
+      <button id="shareBtn" type="button" class="flex flex-col items-center gap-0.5 py-1 text-[11px] text-mist-400 transition active:scale-90">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0-12l-4 4m4-4l4 4M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/></svg>
+        Compartir
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== BOTÓN FLOTANTE WHATSAPP (solo tablet/escritorio) ====== -->
+  <a href="#" target="_blank" rel="noopener" class="wa-link group fixed bottom-6 right-6 z-50 hidden items-center gap-3 md:flex" aria-label="Contactar por WhatsApp">
+    <span id="fabTip" class="glass pointer-events-none translate-x-3 rounded-xl px-3 py-2 text-sm text-mist-100 opacity-0 shadow-glass transition duration-500 group-hover:translate-x-0 group-hover:opacity-100">
+      ¡Hola! 👋 ¿Te tejo algo?
+    </span>
+    <span class="relative flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg shadow-black/40 transition group-hover:scale-110">
+      <span class="absolute inset-0 rounded-full bg-whatsapp animate-pulseRing"></span>
+      <svg class="relative h-7 w-7" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg>
+    </span>
+  </a>
+
+  <!-- ====== Aviso emergente (toast) ====== -->
+  <div id="toast" class="pointer-events-none fixed inset-x-0 bottom-28 z-[70] flex justify-center px-4 opacity-0 transition duration-300 md:bottom-8">
+    <span class="glass rounded-full bg-night-800/90 px-4 py-2 text-sm text-mist-100 shadow-glass">✅ Enlace copiado</span>
+  </div>
+
+  <!-- ====== MODAL / HOJA INFERIOR "LO QUIERO" ====== -->
+  <div id="productModal" class="fixed inset-0 z-[60] hidden items-end justify-center sm:items-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div id="modalBackdrop" class="absolute inset-0 animate-fadeIn bg-night-950/75 backdrop-blur-sm"></div>
+
+    <div id="modalSheet" class="relative flex max-h-[92vh] w-full animate-sheetUp flex-col overflow-hidden rounded-t-[1.75rem] sm:overflow-y-auto border border-white/10 bg-night-800/95 shadow-glass sm:grid sm:max-w-3xl sm:animate-fadeUp sm:grid-cols-2 sm:rounded-3xl" style="max-height:92dvh">
+      <!-- Agarradera para deslizar (celular) -->
+      <div id="sheetHandle" class="absolute inset-x-0 top-0 z-20 flex justify-center pb-3 pt-2.5 sm:hidden">
+        <span class="h-1.5 w-12 rounded-full bg-white/40"></span>
+      </div>
+
+      <button id="modalClose" class="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-night-900/70 text-mist-200 backdrop-blur transition hover:rotate-90 active:scale-90" aria-label="Cerrar">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div id="sheetScroll" class="min-h-0 flex-1 overflow-y-auto overscroll-contain sm:contents">
+        <div class="relative">
+          <img id="modalImg" src="" alt="" class="aspect-[4/5] max-h-[52vh] w-full object-cover sm:aspect-auto sm:h-full sm:max-h-none" />
+          <span class="absolute bottom-3 left-3 rounded-full bg-night-900/70 px-3 py-1 text-[11px] text-mist-200 backdrop-blur">📷 Imagen de referencia</span>
+        </div>
+        <div class="flex flex-col p-5 sm:p-8">
+          <span id="modalCat" class="text-xs font-medium uppercase tracking-widest text-mar-300"></span>
+          <h3 id="modalTitle" class="mt-1 font-serif text-2xl font-bold text-mist-100 sm:text-3xl"></h3>
+          <p id="modalDesc" class="mt-2 text-[15px] leading-relaxed text-mist-300 sm:mt-3"></p>
+          <ul class="mt-4 flex flex-wrap gap-2 text-[13px] text-mist-200 sm:mt-5">
+            <li class="rounded-full bg-white/5 px-3 py-1.5">🎨 Colores a elección</li>
+            <li class="rounded-full bg-white/5 px-3 py-1.5">📏 A tu medida</li>
+            <li class="rounded-full bg-white/5 px-3 py-1.5">💬 Precio a consultar</li>
+          </ul>
+          <!-- Botones (escritorio) -->
+          <div class="mt-auto hidden flex-col gap-3 pt-7 sm:flex">
+            <a href="#" target="_blank" rel="noopener" class="modal-wa inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-whatsapp px-5 font-semibold text-night-950 transition hover:brightness-110">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg> Pedir por WhatsApp
+            </a>
+            <button class="modal-cancel glass h-12 rounded-2xl px-5 font-semibold text-mist-200 transition hover:bg-white/10">Seguir viendo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón fijo abajo (celular) -->
+      <div class="pb-safe flex gap-2 border-t border-white/10 bg-night-800 px-4 pt-3 sm:hidden">
+        <button class="modal-cancel h-12 rounded-2xl bg-white/5 px-4 font-semibold text-mist-200 active:scale-95">Volver</button>
+        <a href="#" target="_blank" rel="noopener" class="modal-wa flex h-12 flex-1 items-center justify-center gap-2 rounded-2xl bg-whatsapp font-semibold text-night-950 shadow-glow-wa active:scale-[.97]">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"/></svg> Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ícono de WhatsApp reutilizable -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+    <symbol id="icon-wa" viewBox="0 0 24 24">
+      <path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8a9.9 9.9 0 01-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1112 21.8zM20.5 3.5A11.8 11.8 0 001.7 17.7L0 24l6.4-1.7A11.8 11.8 0 0024 12a11.7 11.7 0 00-3.5-8.5z"/>
+    </symbol>
+  </svg>
+
+  <!-- ====== JAVASCRIPT ====== -->
+  <script>
+    /* ------------------------------------------------------------------
+     * CONFIGURACIÓN
+     * ------------------------------------------------------------------ */
+    const CONFIG = {
+      whatsappNumber: '50671585300',   // +506 7158 5300 (solo dígitos)
+      whatsappGreeting: '¡Hola Sofía! 🧶 Vi tu catálogo de crochet y me gustaría hacer un pedido.',
+      instagram: '',                   // ej. 'https://instagram.com/usuario' (vacío = oculto)
+      facebook: '',                    // ej. 'https://facebook.com/usuario'  (vacío = oculto)
+    };
+
+    const CATEGORIES = { tops: 'Tops', conjuntos: 'Conjuntos', bano: 'Trajes de baño' };
+
+    /* Productos — las imágenes están en la carpeta /img */
+    const PRODUCTS = [
+      { id: 1, cat: 'conjuntos', badge: 'Favorito', accent: 'sol',   w: 236, h: 288,
+        name: 'Conjunto Girasol', img: 'img/set-girasol.jpg',
+        desc: 'Set de sombrero bucket, top con cuadros granny de girasol y short calado con cordón. Perfecto para el verano.' },
+      { id: 2, cat: 'tops',      badge: 'Nuevo',    accent: 'rosa',  w: 554, h: 554,
+        name: 'Top Halter Rosa', img: 'img/top-rosa.jpg',
+        desc: 'Top tipo bralette con copas tejidas, detalle calado al centro y tiras largas para amarrar al cuello y la espalda.' },
+      { id: 3, cat: 'tops',      badge: '',         accent: 'terra', w: 480, h: 640,
+        name: 'Top Terracota con Lazos', img: 'img/top-terracota.jpg',
+        desc: 'Top de tirantes con abertura frontal, lazos para ajustar y un coqueto volante en el borde inferior.' },
+      { id: 4, cat: 'bano',      badge: 'Verano',   accent: 'mar',   w: 480, h: 640,
+        name: 'Bikini Bandeau Turquesa', img: 'img/bikini-turquesa.jpg',
+        desc: 'Bikini strapless con borde de conchitas y parte inferior con amarres laterales. Fresco, cómodo y lleno de color.' },
+    ];
+
+    // Clases por color (escritas completas para que Tailwind CDN las detecte)
+    const ACCENTS = {
+      sol:   { badge: 'bg-sol-400 text-night-950',   btn: 'border-sol-400/30 bg-sol-400/10 text-sol-300 hover:bg-sol-400 hover:text-night-950 active:bg-sol-400 active:text-night-950' },
+      rosa:  { badge: 'bg-rosa-400 text-night-950',  btn: 'border-rosa-400/30 bg-rosa-400/10 text-rosa-300 hover:bg-rosa-400 hover:text-night-950 active:bg-rosa-400 active:text-night-950' },
+      terra: { badge: 'bg-terra-400 text-night-950', btn: 'border-terra-400/30 bg-terra-400/10 text-terra-300 hover:bg-terra-400 hover:text-night-950 active:bg-terra-400 active:text-night-950' },
+      mar:   { badge: 'bg-mar-400 text-night-950',   btn: 'border-mar-400/30 bg-mar-400/10 text-mar-300 hover:bg-mar-400 hover:text-night-950 active:bg-mar-400 active:text-night-950' },
+    };
+
+    /* ------------------------------------------------------------------
+     * Utilidades
+     * ------------------------------------------------------------------ */
+    const $  = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+    const waLink = (text) => `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    $$('.wa-link').forEach((a) => (a.href = waLink(CONFIG.whatsappGreeting)));
+    [['#instagramLink', CONFIG.instagram], ['#facebookLink', CONFIG.facebook]].forEach(([sel, url]) => {
+      if (url) { $(sel).href = url; $(sel).classList.replace('hidden', 'flex'); }
+    });
+    $('#year').textContent = new Date().getFullYear();
+
+    function showToast(msg) {
+      const t = $('#toast');
+      t.querySelector('span').textContent = msg;
+      t.classList.remove('opacity-0');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => t.classList.add('opacity-0'), 2200);
+    }
+
+    /* ------------------------------------------------------------------
+     * Aparición al hacer scroll
+     * ------------------------------------------------------------------ */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    const observeReveals = (root = document) => root.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => revealObserver.observe(el));
+
+    /* ------------------------------------------------------------------
+     * Catálogo + filtros
+     * ------------------------------------------------------------------ */
+    const grid = $('#productGrid');
+    const filtersEl = $('#filters');
+    let activeFilter = 'todos';
+
+    function productCard(p, i) {
+      const a = ACCENTS[p.accent];
+      return `
+        <article class="reveal group" style="transition-delay:${(i % 2) * 90 + Math.floor(i / 2) * 60}ms">
+          <div class="tilt glass-card flex h-full flex-col overflow-hidden rounded-2xl shadow-glass sm:rounded-3xl md:hover:border-white/20">
+            <button class="open-btn shine relative block aspect-[4/5] overflow-hidden text-left" data-id="${p.id}" aria-label="Ver ${p.name}">
+              <img src="${p.img}" width="${p.w}" height="${p.h}" alt="${p.name} tejido a crochet" loading="lazy" decoding="async"
+                   class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-night-900/80 via-night-900/0 to-transparent"></div>
+              <span class="glass absolute left-3 top-3 hidden rounded-full px-3 py-1 text-xs font-medium text-mist-100 sm:inline-block">${CATEGORIES[p.cat]}</span>
+              ${p.badge ? `<span class="absolute right-2 top-2 rounded-full px-2.5 py-0.5 text-[10px] font-semibold sm:right-3 sm:top-3 sm:px-3 sm:py-1 sm:text-xs ${a.badge}">${p.badge}</span>` : ''}
+              <span class="absolute bottom-2 left-2 rounded-full bg-night-900/60 px-2 py-0.5 text-[9px] text-mist-300 backdrop-blur sm:bottom-3 sm:left-3 sm:text-[10px]">Imagen de referencia</span>
+            </button>
+            <div class="flex flex-1 flex-col p-3 sm:p-5">
+              <h3 class="font-serif text-[15px] font-semibold leading-snug text-mist-100 sm:text-xl">${p.name}</h3>
+              <p class="mt-1 line-clamp-2 flex-1 text-xs leading-relaxed text-mist-400 sm:mt-2 sm:line-clamp-none sm:text-sm">${p.desc}</p>
+              <button data-id="${p.id}" class="open-btn mt-3 inline-flex h-10 items-center justify-center gap-1.5 rounded-xl border px-3 text-[13px] font-semibold transition duration-300 active:scale-95 sm:mt-5 sm:h-11 sm:rounded-2xl sm:px-5 sm:text-sm ${a.btn}">
+                <svg class="h-4 w-4 transition group-hover:scale-125" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.4 2.3 4.5 6 4.1c2-.2 3.6.8 4.5 2.2l1.5 1.9 1.5-1.9c.9-1.4 2.5-2.4 4.5-2.2 3.7.4 5.6 4.3 4 7.6C19.5 16.4 12 21 12 21z"/></svg>
+                Lo quiero
+              </button>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function renderFilters() {
+      const entries = [['todos', 'Todos'], ...Object.entries(CATEGORIES)];
+      filtersEl.innerHTML = entries.map(([key, label]) => {
+        const count = key === 'todos' ? PRODUCTS.length : PRODUCTS.filter((p) => p.cat === key).length;
+        const active = key === activeFilter;
+        return `
+          <button data-filter="${key}" aria-pressed="${active}"
+            class="filter-btn inline-flex h-10 shrink-0 snap-start items-center gap-2 rounded-full px-4 text-sm font-medium transition duration-300 active:scale-95
+                   ${active ? 'bg-gradient-to-r from-rosa-400 to-sol-400 text-night-950 shadow-glow'
+                            : 'glass text-mist-300 hover:bg-white/10 hover:text-white'}">
+            ${label}
+            <span class="rounded-full px-1.5 text-[11px] ${active ? 'bg-night-950/15' : 'bg-white/10'}">${count}</span>
+          </button>`;
+      }).join('');
+    }
+
+    function renderProducts() {
+      const list = activeFilter === 'todos' ? PRODUCTS : PRODUCTS.filter((p) => p.cat === activeFilter);
+      grid.innerHTML = list.map(productCard).join('');
+      observeReveals(grid);
+      if (!isTouch) enableTilt();
+    }
+
+    filtersEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn || btn.dataset.filter === activeFilter) return;
+      activeFilter = btn.dataset.filter;
+      renderFilters();
+      renderProducts();
+      if (navigator.vibrate) navigator.vibrate(8);
+    });
+
+    /* Inclinación 3D sutil (solo con mouse) */
+    function enableTilt() {
+      grid.querySelectorAll('.tilt').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+        });
+        card.addEventListener('mouseleave', () => (card.style.transform = ''));
+      });
+    }
+
+    /* ------------------------------------------------------------------
+     * Modal / hoja inferior
+     * ------------------------------------------------------------------ */
+    const modal = $('#productModal');
+    const sheet = $('#modalSheet');
+    const sheetScroll = $('#sheetScroll');
+    let lastFocused = null;
+
+    function openModal(p) {
+      lastFocused = document.activeElement;
+      $('#modalImg').src = p.img;
+      $('#modalImg').alt = `${p.name} tejido a crochet`;
+      $('#modalCat').textContent = CATEGORIES[p.cat];
+      $('#modalTitle').textContent = p.name;
+      $('#modalDesc').textContent = p.desc;
+      const link = waLink(`¡Hola Sofía! 🧶 Me encantó el modelo "${p.name}" (${CATEGORIES[p.cat]}) de tu catálogo. ¿Me puedes dar información sobre colores, tallas, precio y tiempo de entrega?`);
+      $$('.modal-wa').forEach((a) => (a.href = link));
+      sheet.style.transform = '';
+      sheetScroll.scrollTop = 0;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('modal-open');
+      if (!isTouch) $('#modalClose').focus();
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('modal-open');
+      if (lastFocused && !isTouch) lastFocused.focus();
+    }
+
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.open-btn');
+      if (!btn) return;
+      const p = PRODUCTS.find((x) => x.id === Number(btn.dataset.id));
+      if (p) openModal(p);
+    });
+    $('#modalClose').addEventListener('click', closeModal);
+    $('#modalBackdrop').addEventListener('click', closeModal);
+    $$('.modal-cancel').forEach((b) => b.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+    /* Deslizar hacia abajo para cerrar (celular) */
+    (() => {
+      let startY = 0, dy = 0, dragging = false;
+      sheet.addEventListener('touchstart', (e) => {
+        if (window.innerWidth >= 640 || sheetScroll.scrollTop > 0) return;
+        dragging = true; dy = 0; startY = e.touches[0].clientY;
+        sheet.style.transition = 'none';
+      }, { passive: true });
+      sheet.addEventListener('touchmove', (e) => {
+        if (!dragging) return;
+        dy = Math.max(0, e.touches[0].clientY - startY);
+        if (dy > 0 && sheetScroll.scrollTop <= 0) sheet.style.transform = `translateY(${dy}px)`;
+      }, { passive: true });
+      sheet.addEventListener('touchend', () => {
+        if (!dragging) return;
+        dragging = false;
+        sheet.style.transition = 'transform .25s ease';
+        if (dy > 110) {
+          sheet.style.transform = 'translateY(100%)';
+          setTimeout(() => { closeModal(); sheet.style.transition = ''; }, 220);
+        } else {
+          sheet.style.transform = '';
+        }
+      });
+    })();
+
+    /* ------------------------------------------------------------------
+     * Compartir (celular)
+     * ------------------------------------------------------------------ */
+    $('#shareBtn').addEventListener('click', async () => {
+      const data = { title: 'Sofía Crochet', text: 'Mira estas prendas tejidas a crochet 🧶', url: location.href.split('#')[0] };
+      try {
+        if (navigator.share) { await navigator.share(data); return; }
+        await navigator.clipboard.writeText(data.url);
+        showToast('✅ Enlace copiado');
+      } catch (_) { /* el usuario canceló */ }
+    });
+
+    /* ------------------------------------------------------------------
+     * Sección activa (barra superior e inferior)
+     * ------------------------------------------------------------------ */
+    const navLinks = $$('.nav-link');
+    const tabLinks = $$('.tab-link');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach((l) => {
+          const on = l.getAttribute('href') === `#${id}`;
+          l.classList.toggle('text-white', on);
+          l.classList.toggle('text-mist-300', !on);
+        });
+        tabLinks.forEach((l) => {
+          const on = l.dataset.section === id;
+          l.classList.toggle('text-rosa-300', on);
+          l.classList.toggle('text-mist-400', !on);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['inicio', 'catalogo', 'contacto'].forEach((id) => sectionObserver.observe(document.getElementById(id)));
+
+    /* Globo del botón flotante (escritorio) */
+    setTimeout(() => {
+      const tip = $('#fabTip');
+      tip.classList.remove('opacity-0', 'translate-x-3');
+      setTimeout(() => tip.classList.add('opacity-0', 'translate-x-3'), 4000);
+    }, 2500);
+
+    /* Init */
+    renderFilters();
+    renderProducts();
+    observeReveals();
+  </script>
+</body>
+</html>
